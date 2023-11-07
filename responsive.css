@@ -1,3 +1,7 @@
+body {
+    height: 8000px;
+}
+
 .container {
     width: 1080px;
     /* ha max-width: 1080px akkor 1080px felvesszük a képernyő 100%-os szélességét, ha csak width: 1080px akkor nem tudjuk */
@@ -24,12 +28,12 @@
 /* ez az egyik módja, hogy minden egyes eszközön megfelelően jelenjen meg a tartalom */
 /* ha a képernyőn 800px-ig a container szélessége 600px lesz */
 
-@media screen and (min-width: 1250px) {
+/* @media screen and (min-width: 1250px) {
     .container {
         background-color: green;
     }
 }
-
+*/
 /* minimum 1250px szélesség vagy nagyobb, a container 1250px-töl green-né fog változni */
 
 @media print and (max-width: 1920px) {
@@ -38,5 +42,42 @@
     .container {
         background-color: purple;
         border: 3px solid grey;
+    }
+}
+
+.flex {
+    display: flex; /* a flex-itemeket amiket csinalunk a flex-boxban egymás mellé teszi őket*/
+    justify-content: center; /* a képernyő közepére helyezi a flex-itemeket, mint vertikélisan az align-items: center */
+    /* flex-direction: column;*/ /* a flex itemek bemennek egymás alá, egy oszlopba megy be az összes elem és
+    ilyenkor a justify-content nem vontakozik rá, csak az align-items*/
+}
+.flex-item {
+    width: 250px;
+    height: 250px;
+    margin: 15px;
+    background-color: salmon;
+}
+
+ @media screen and (orientation:portrait) { /* portraiben a width megy össze és az alábbi .flex miatt egy bizonyos ponton beugranak egymás alá */
+    .flex {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+}
+.grid-item {
+    background-color: blue;
+    padding-bottom: 100%; /* tökéletes négyzet, mindig olyan magas lesz amilyen széles még ha összehuzom */
+}
+/* ha nem szeretnénk,hogy a grid-itemek tul kicsik legyenek, mert például van bennük egy kép vagy felirat ami nem fér ki */
+
+@media screen and (max-width: 1080px) {
+    .grid-4 {
+        grid-template-columns: 1fr 1fr; 
     }
 }
