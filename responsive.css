@@ -1,0 +1,42 @@
+.container {
+    width: 1080px;
+    /* ha max-width: 1080px akkor 1080px felvesszük a képernyő 100%-os szélességét, ha csak width: 1080px akkor nem tudjuk */
+    height: 500px;
+    background-color: red;
+    margin: 15px auto;
+}
+
+@media screen and (max-width: 1080px) {
+    .container {
+        /* background-color: blue; */
+        width: 800px;
+    }
+}
+
+/*  ha a képernyő kisebb vagy egyenlő mint 1080px, akkor a container-nek a színe blue lesz */
+
+@media screen and (max-width: 800px) {
+    .container {
+        width: 600px;
+    }
+}
+
+/* ez az egyik módja, hogy minden egyes eszközön megfelelően jelenjen meg a tartalom */
+/* ha a képernyőn 800px-ig a container szélessége 600px lesz */
+
+@media screen and (min-width: 1250px) {
+    .container {
+        background-color: green;
+    }
+}
+
+/* minimum 1250px szélesség vagy nagyobb, a container 1250px-töl green-né fog változni */
+
+@media print and (max-width: 1920px) {
+
+    /* nyomtatott nézet */
+    .container {
+        background-color: purple;
+        border: 3px solid grey;
+    }
+}

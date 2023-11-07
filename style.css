@@ -1,0 +1,139 @@
+@keyframes rotateX {
+    from {
+        transform: rotateX(0deg);
+    }
+
+    to {
+        transform: rotateX(180deg);
+    }
+
+    /*we give a keyframe a name to which we will refer down at .rotate-x as animation name */
+}
+
+@keyframes rotateY {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(180deg);
+    }
+
+}
+
+@keyframes rotateZ {
+    from {
+        transform: rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateZ(180deg);
+    }
+}
+
+body {
+    min-height: 5000px;
+}
+
+.linear-transition {
+    width: 250px;
+    height: 250px;
+    background: blue;
+    transition: margin-left 2s linear;
+    /* 3 tulajdonságot vár 1. milyen tulajdonságra legyen vontakoztatva (margin-left: 125px;)
+    2. mennyi idő alatt mennyen végbe (2s), 3. a transition típusát (linear) */
+}
+
+.linear-transition:hover {
+    margin-left: 125px;
+}
+
+.ease-in-transition {
+    width: 250px;
+    height: 250px;
+    background: rebeccapurple;
+    transition: margin-left 2s ease-in;
+    /* ease-in -> lassan megy és utána felgyorsul */
+}
+
+.ease-in-transition:hover {
+    margin-left: 125px;
+}
+
+.ease-in-out-transition {
+    width: 250px;
+    height: 250px;
+    background: navajowhite;
+    transition: margin-left 2s ease-in-out;
+    /* felgyorsul és itána lelassul */
+}
+
+.ease-in-out-transition:hover {
+    margin-left: 125px;
+}
+
+.ease-transition {
+    width: 250px;
+    height: 250px;
+    background: khaki;
+    transition: margin-left 2s ease;
+    /* margin-left helyett írhatjuk, hogy all és akkor az összes tulajdonségra fog vontakozni amit megadtunk neki a transition:hover-ben */
+}
+
+.ease-transition:hover {
+    margin-left: 125px;
+}
+
+.rotate-x {
+    width: 250px;
+    height: 250px;
+    background-color: red;
+    /* transform: rotateX(20deg); */
+    animation-name: rotateX;
+    animation-duration: 2s;
+    text-align: center;
+    line-height: 250px;
+}
+
+.rotate-y {
+    width: 250px;
+    height: 250px;
+    background-color: aqua;
+    animation-name: rotateY;
+    animation-duration: 2s;
+    text-align: center;
+    line-height: 250px;
+}
+
+.rotate-z {
+    width: 250px;
+    height: 250px;
+    background-color: blueviolet;
+    animation-name: rotateZ;
+    animation-duration: 2s;
+    text-align: center;
+    line-height: 250px;
+}
+
+.scale {
+    width: 250px;
+    height: 250px;
+    background-color: cyan;
+}
+/* ezzel lehet rázoomolni valamire */
+
+.scale:hover {
+    transform: scale(1.5, 2) /* megnöveli a width-et az x-tengelyen 1.5-szorosára és megnöveli a height-ot az y-tengelyen 2-szeresére */ 
+}
+/* a scale két paramétert kap, az x és az y-tengelyen lehet rázoomolni(megnöveli a height és a width-et) */ 
+
+.rotate-skew {
+    width: 250px;
+    height: 250px;
+    background-color: salmon;
+    transition: all 2s ease;
+}
+.rotate-skew:hover {
+    transform: skew(15deg, 30deg);
+}
+
